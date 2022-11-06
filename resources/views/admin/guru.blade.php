@@ -2,7 +2,7 @@
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Profil Guru</h1>
-        <a href="{{ url('admin/guru/tambah') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="{{ route('guru.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Profil Guru</a>
     </div>
 
@@ -19,14 +19,14 @@
                 @forelse ($gurus as $guru)
                     <div class="col mt-3">
                         <div class="card">
-                            <img class="card-img-top" src="{{ Storage::url($guru->gambar) }}" height="200" width="150">
+                            <img class="card-img-top" src="{{ Storage::url($guru->gambar) }}" height="200">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $guru->nama }}</h5>
                                 <p class="card-text">{{ $guru->jenis_guru }}</p>
 
                                 <div class="btn-action">
-                                    <form action="{{ route('gurus.destroy',$guru->id) }}" method="POST">
-                                        <a href="{{ route('gurus.edit',$guru->id) }}" class="btn btn-info">Edit</a>
+                                    <form action="{{ route('guru.destroy',$guru->id) }}" method="POST">
+                                        <a href="{{ route('guru.edit',$guru->id) }}" class="btn btn-info">Edit</a>
 
                                         @csrf
                                         @method('DELETE')

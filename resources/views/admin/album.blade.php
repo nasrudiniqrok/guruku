@@ -2,7 +2,7 @@
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Album Foto</h1>
-        <a href="{{ url('admin/album/tambah') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="{{ route('album.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Foto</a>
     </div>
 
@@ -26,8 +26,8 @@
 
                                 {{-- tombol edit & hapus hanya untuk user sendiri atau admin --}}
                                 <div class="btn-action">
-                                    <form action="{{ route('albums.destroy',$album->id) }}" method="POST">
-                                        <a href="{{ route('albums.edit',$album->id) }}" class="btn btn-info">Edit</a>
+                                    <form action="{{ route('album.destroy',$album->id) }}" method="POST">
+                                        <a href="{{ route('album.edit',$album->id) }}" class="btn btn-info">Edit</a>
 
                                         @csrf
                                         @method('DELETE')

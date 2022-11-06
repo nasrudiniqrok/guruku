@@ -15,7 +15,7 @@ class AdminalbumController extends Controller
         return view('admin.album', $data);
     }
 
-    public function tambah_album()
+    public function create()
     {
         return view('admin.tambah_album');
     }
@@ -35,7 +35,7 @@ class AdminalbumController extends Controller
         $post->gambar = $path;
         $post->save();
 
-        return redirect()->route('admin.index')->with('Berhasil', 'Data Telah di Simpan');
+        return redirect()->route('album.index')->with('Berhasil', 'Data Telah di Simpan');
     }
 
     public function edit(Album $album)
@@ -66,7 +66,7 @@ class AdminalbumController extends Controller
         $post->kategori = $request->kategori;
         $post->save();
 
-        return redirect()->route('admin.index')
+        return redirect()->route('album.index')
         ->with('Berhasil', ' Data Berhasil Diubah');
     }
 
@@ -78,7 +78,7 @@ class AdminalbumController extends Controller
         $avatar->delete();
     }
 
-    return redirect()->route('admin.index')
+    return redirect()->route('album.index')
         ->with('Berhasil','Data Berhasil Dihapus');
     }
 }

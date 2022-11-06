@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-xxl-6 col-xl-8">
-                        <form action="{{ route('gurus.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('guru.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label class="small mb-1" for="nama">Nama</label>

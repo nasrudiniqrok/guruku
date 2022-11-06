@@ -45,8 +45,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item {{ Request::segment(2) == '' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
             </li>
@@ -60,19 +60,19 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::segment(2) == 'tentang'||  Request::segment(2) == 'album'||  Request::segment(2) == 'guru'|| Request::segment(2) == 'kelas'  ? 'active' : '' }}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Konten</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse {{ Request::segment(2) == 'tentang'||  Request::segment(2) == 'album'||  Request::segment(2) == 'guru'|| Request::segment(2) == 'kelas'  ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Kustom Konten:</h6>
-                        {{-- <a class="collapse-item" href="buttons.html">Artikel</a> --}}
-                        <a class="collapse-item" href="{{ url('admin/album') }}">Album Foto</a>
-                        <a class="collapse-item" href="{{ url('admin/guru') }}">Profil Guru</a>
-                        <a class="collapse-item" href="{{ url('admin/kelas') }}">Program Kelas</a>
+                        <a class="collapse-item {{ Request::segment(2) == 'tentang' ? 'active' : '' }}" href="{{ route('tentang.index') }}">Artikel</a>
+                        <a class="collapse-item {{ Request::segment(2) == 'album' ? 'active' : '' }}" href="{{ route('album.index') }}">Album Foto</a>
+                        <a class="collapse-item {{ Request::segment(2) == 'guru' ? 'active' : '' }}" href="{{ route('guru.index') }}">Profil Guru</a>
+                        <a class="collapse-item {{ Request::segment(2) == 'kelas' ? 'active' : '' }}" href="{{ route('kelas.index') }}">Program Kelas</a>
                     </div>
                 </div>
             </li>

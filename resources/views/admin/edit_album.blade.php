@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-xxl-6 col-xl-8">
-                        <form action="{{ route('albums.update',$album->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('album.update',$album->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 

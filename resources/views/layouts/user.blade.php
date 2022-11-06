@@ -60,12 +60,12 @@
         id="navbarCollapse"
         >
         <div class="navbar-nav font-weight-bold mx-auto py-0">
-            <a href="{{ url('/') }}" class="nav-item nav-link active">Beranda</a>
-            <a href="{{ url('tentang') }}" class="nav-item nav-link">Tentang</a>
-            <a href="{{ url('kelas') }}" class="nav-item nav-link">Kelas</a>
-            <a href="{{ url('guru') }}" class="nav-item nav-link">Guru</a>
-            <a href="{{ url('album') }}" class="nav-item nav-link">Album</a>
-            <a href="{{ url('kontak') }}" class="nav-item nav-link">Kontak</a>
+            <a href="{{ url('/') }}" class="nav-item nav-link {{ Request::segment(1) == '' ? 'active' : '' }}">Beranda</a>
+            <a href="{{ url('tentang') }}" class="nav-item nav-link {{ Request::segment(1) == 'tentang' ? 'active' : '' }}">Tentang</a>
+            <a href="{{ url('kelas') }}" class="nav-item nav-link {{ Request::segment(1) == 'kelas' ? 'active' : '' }}">Kelas</a>
+            <a href="{{ url('guru') }}" class="nav-item nav-link {{ Request::segment(1) == 'guru' ? 'active' : '' }}">Guru</a>
+            <a href="{{ url('album') }}" class="nav-item nav-link {{ Request::segment(1) == 'album' ? 'active' : '' }}">Album</a>
+            <a href="{{ url('kontak') }}" class="nav-item nav-link {{ Request::segment(1) == 'kontak' ? 'active' : '' }}">Kontak</a>
         </div>
         <a href="https://api.whatsapp.com/send?phone=62895366884004&text=Halo%20Admin!%0ASaya%20ingin%20daftar%20les%20privat%20Anda" class="btn btn-primary px-4">Pesan Kelas</a>
         </div>

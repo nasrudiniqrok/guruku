@@ -8,19 +8,20 @@ use Illuminate\Support\Facades\Storage;
 
 class AnggotaController extends Controller
 {
-    public function index()
+
+    public function guru()
     {
         $data['gurus'] = Guru::all();
         return view('anggota', $data);
     }
 
-    public function guru()
+    public function index()
     {
         $data['gurus'] = Guru::all();
         return view('admin.guru', $data);
     }
 
-    public function tambah_guru()
+    public function create()
     {
         return view('admin.tambah_profil');
     }
@@ -40,7 +41,7 @@ class AnggotaController extends Controller
         $post->gambar = $path;
         $post->save();
 
-        return redirect()->route('gurus.guru')->with('Berhasil', 'Data Telah di Simpan');
+        return redirect()->route('guru.index')->with('Berhasil', 'Data Telah di Simpan');
     }
 
     public function edit(Guru $guru)
@@ -71,7 +72,7 @@ class AnggotaController extends Controller
         $post->jenis_guru = $request->jenis_guru;
         $post->save();
 
-        return redirect()->route('gurus.guru')
+        return redirect()->route('guru.index')
         ->with('Berhasil', ' Data Berhasil Diubah');
     }
 
@@ -83,7 +84,7 @@ class AnggotaController extends Controller
         $avatar->delete();
     }
 
-    return redirect()->route('gurus.guru')
+    return redirect()->route('guru.index')
         ->with('Berhasil','Data Berhasil Dihapus');
     }
 }

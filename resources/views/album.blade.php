@@ -59,7 +59,7 @@
                     </div>
                 </div>
             @empty
-            <p>Tidak Ada Data...</p>
+            <p class="card-body text-center">Tidak Ada Data...</p>
             @endforelse
         </div>
     </div>
